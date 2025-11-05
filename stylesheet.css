@@ -1,0 +1,333 @@
+@font-face {
+    font-family: "Syracuse Block Condensed";
+    src: url('./assets/SyracuseBlockCondensedVF.woff2') format("woff2 supports variations");
+    src: url('./assets/SyracuseBlockCondensedVF.woff2') format("woff2-variations");
+    font-weight: 100 900;
+    }
+@font-face {
+    font-family: ShermanSans;
+    src: url(https://assets.syracuse.edu/fonts/shermansans-book.woff2) format("woff2"),url(https://assets.syracuse.edu/fonts/shermansans-book.woff) format("woff"),url(https://assets.syracuse.edu/fonts/shermansans-book.eot) format("embedded-opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: ShermanSans;
+    src: url(https://assets.syracuse.edu/fonts/shermansans-book-intl.woff2) format("woff2"),url(https://assets.syracuse.edu/fonts/shermansans-book-intl.woff) format("woff"),url(https://assets.syracuse.edu/fonts/shermansans-book-intl.eot) format("embedded-opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: ShermanSans;
+    src: url(https://assets.syracuse.edu/fonts/shermansans-bold.woff2) format("woff2"),url(https://assets.syracuse.edu/fonts/shermansans-bold.woff) format("woff"),url(https://assets.syracuse.edu/fonts/shermansans-bold.eot) format("embedded-opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: ShermanSans;
+    src: url(https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff2) format("woff2"),url(https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff) format("woff"),url(https://assets.syracuse.edu/fonts/shermansans-bold-intl.eot) format("embedded-opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --sherman-sans: "ShermanSans", Verdana, sans-serif;
+    --fontWeight: clamp(100, calc(var(--cursor-x) * 1000), 900);
+    --cursor-x: 0.5;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+p {
+    font-family: var(--sherman-sans);
+    font-weight: inherit;
+    line-height: 1.6rem;
+}
+::selection {
+    color: white;
+    background: #f76900;
+}
+a {
+    font-weight: bold;
+    color: #f76900;
+}
+h2 {
+    font-family: "Syracuse Block Condensed", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 3rem 0 0.5rem;
+}
+
+/* ---- Begin Font Weight Classes ---- */
+
+.thin { 
+    font-weight: 100; 
+}
+.thin-ital { 
+    font-weight: 100; 
+    font-variation-settings: "ital" 1; 
+}
+.light { 
+    font-weight: 300; 
+}
+.light-ital { 
+    font-weight: 300; 
+    font-variation-settings: "ital" 1; 
+}
+.regular { 
+    font-weight: 400; 
+}
+.ital { 
+    font-weight: 400; 
+    font-variation-settings: "ital" 1; 
+}
+.medium { 
+    font-weight: 500;
+ }
+.medium-ital { 
+    font-weight: 500; 
+    font-variation-settings: "ital" 1; 
+}
+.bold { 
+    font-weight: 700; 
+}
+.bold-ital { 
+    font-weight: 700; 
+    font-variation-settings: "ital" 1; 
+}
+.heavy { 
+    font-weight: 900; 
+}
+.heavy-ital { 
+    font-weight: 900; 
+    font-variation-settings: "ital" 1; 
+}
+
+/* ---- End Font Weight Classes ---- */
+
+header {
+    background-color: #f5f5f5;
+    position: fixed;
+    top: -16px;
+    left: 5%;
+    width: 60px;
+    height: 96px;
+    box-shadow: 0 4px 6px 0 #1a1a1a4a;
+    z-index: 990;
+    padding: 46px 18px 0;
+    transition: all 200ms;
+}
+header:hover {
+    transform: translateY(12px);
+}
+.block {
+    transition: all 300ms;
+    color: #000E54;
+    position: relative;
+}
+.bound {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.slate-bg {
+    background: #f8f8f8;
+    color: #333;
+    padding: 4rem 0;
+}
+.white-bg {
+    background: #ffffff;
+    color: #333;
+    padding: 4rem 0;
+}
+.textured-bg {
+    background: url(./assets/decor/wood.png);
+}
+.gradient-blue-bg {
+    background: linear-gradient(118deg,#000E54,30.08%,#203299 98.9%);
+    color: white;
+    padding: 4rem 0;
+}
+.gradient-blue-bg code {
+    color: #ffffff99;
+}
+.gradient-blue-bg a {
+    color: white !important;
+}
+.hero {
+    background:linear-gradient(#000e54cc, #000e54cc), center bottom / cover url(./assets/SFS_NancyCantorWarehouse_0008_72PPI_BW.JPG);
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    width: 100%;
+    color: white;
+    filter: opacity(1);
+    transition: all 300ms;
+    z-index: 0;
+}
+.hero .plate {
+    margin: 0 2.5%;
+    font-weight: normal;
+    font-size: 1.25rem;
+    letter-spacing: 0.3px;
+}
+.hero .arrow {
+    margin: 0 auto;
+    width: 3rem;
+    position: absolute;
+    bottom: 7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: hero-arrow-anim 5s infinite;
+}
+@keyframes hero-arrow-anim {
+    0% {
+        transform: translate(-50%, 0%);
+    }
+    50% {
+        transform: translate(-50%, 100%);
+    }
+    100% {
+        transform: translate(-50%, 0%);
+    }
+}
+.hint {
+    position: absolute;
+    background-color: #f76900ea;
+    bottom: -2%;
+    left: 8vw;
+    padding: 0.5rem 1.25rem;
+    transform: rotate(-5deg);
+    z-index: 800;
+    font-size: 0.875rem;
+}
+h1.title {
+    font-family: "Syracuse Block Condensed", "Oswald", sans-serif;
+    font-weight: var(--fontWeight);
+    font-size: clamp(4rem, 12.25vw, 11rem);
+    padding: 1rem 0;
+}
+h1.title em {
+    color: #f76900;
+    font-style: normal;
+}
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.cards img {
+    width: 25vw;
+}
+.glyphs {
+    padding: 6rem 0;
+}
+.glyphs .all-glyphs {
+    font-family: "Syracuse Block Condensed", sans-serif;
+    font-size: 8rem;
+    line-height: 1.8em;
+    letter-spacing: 0.15rem;
+    text-align: justify;
+}
+.center {
+    text-align: center;
+}
+.column {
+    display: block;
+    list-style-type: none;
+}
+.row {
+    list-style-type: none;
+    margin: 0 auto;
+}
+.row li {
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+button {
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    border: 2px solid transparent;
+    background-color: #000e54;
+    border-radius: 0px;
+    text-decoration: none;
+    transition: all 250ms;
+    text-decoration: none;
+}
+button:hover {
+    background-color: transparent;
+    border-color: #f76900;
+    color: #000e54;
+    cursor: not-allowed;
+}
+.words {
+    color: white;
+    padding: 4rem 0 2rem;
+}
+.words ul {
+    padding: 0;
+    margin-right: -14% !important;
+}
+.sample {
+    display: inline-block;
+    min-width: 48%;
+    margin-bottom: 3rem;
+}
+.sample-label {
+    font-family: var(--sherman-sans);
+    display: inline-block;
+    width: 100%;
+    color: #f76900;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sample-word {
+    font-size: clamp(6rem, 10vw, 9rem);
+    font-family: "Syracuse Block Condensed", "Oswald", sans-serif;
+}
+.about {
+    padding-top: 3rem;
+}
+.prose p {
+    padding-bottom: 2rem;
+    line-height: 175%;
+}
+.prose code {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    padding: 1rem;
+    background-color: #efefef;
+}
+footer {
+    padding: 6rem 4rem !important; 
+    font-size: 0.875rem;
+    line-height: 1rem;
+    border-top: #70778080 1px solid;
+    color: #000E54;
+    text-align: center;
+}
+footer p {
+    font-family: Verdana, sans-serif;
+    margin: 0 calc(100% * 0.15);
+    text-align: center;
+}
