@@ -233,7 +233,7 @@ h1.title em {
     flex-wrap: wrap;
 }
 .cards img {
-    width: 25vw;
+    width: 25%;
 }
 .glyphs {
     padding: 6rem 0;
