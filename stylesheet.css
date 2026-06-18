@@ -38,8 +38,18 @@
 
 :root {
     --sherman-sans: "ShermanSans", Verdana, sans-serif;
-    --fontWeight: clamp(100, calc(var(--cursor-x) * 1000), 900);
+    --variable-weight: clamp(100, calc(var(--cursor-x) * 1000), 900);
     --cursor-x: 0.5;
+
+    --su-orange-primary: #f76900;
+    --su-blue-primary: #000e54;
+    --su-blue-medium: #203299;
+    --su-neutral-gray: #f5f5f5;
+    --su-gray: #333333;
+    --su-white: white;
+    --drop-shadow: rgb(from #1c1c1c r g b / 0.5);
+    --blue-overlay: rgb(from var(--su-blue-primary) r g b / 0.8), rgb(from var(--su-blue-primary) r g b / 0.8);
+    --orange-overlay: rgb(from var(--su-orange-primary) r g b / 0.9);
 }
 * {
     margin: 0;
@@ -50,20 +60,26 @@
 p {
     font-family: var(--sherman-sans);
     font-weight: inherit;
-    line-height: 1.6rem;
+    line-height: 160%;
 }
 ::selection {
-    color: white;
-    background: #f76900;
+    color: var(--su-white);
+    background: var(--su-orange-primary);
 }
 a {
-    font-weight: bold;
-    color: #f76900;
+    color: var(--su-orange-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 33%;
+    transition: all 0.3s;
+}
+a:hover {
+    text-decoration-color: transparent;
 }
 h2 {
     font-family: "Syracuse Block Condensed", sans-serif;
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 600;
     padding: 3rem 0 0.5rem;
 }
 
@@ -115,13 +131,13 @@ h2 {
 /* ---- End Font Weight Classes ---- */
 
 header {
-    background-color: #f5f5f5;
+    background-color: var(--su-neutral-gray);
     position: fixed;
     top: -16px;
     left: 5%;
     width: 60px;
     height: 96px;
-    box-shadow: 0 4px 6px 0 #1a1a1a4a;
+    box-shadow: 0 0.125em 0.5em 0 var(--drop-shadow);
     z-index: 990;
     padding: 46px 18px 0;
     transition: all 200ms;
@@ -131,41 +147,35 @@ header:hover {
 }
 .block {
     transition: all 300ms;
-    color: #000E54;
+    color: var(--su-blue-primary);
     position: relative;
 }
-.bound {
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 0;
 }
 .slate-bg {
-    background: #f8f8f8;
-    color: #333;
+    background: var(--su-neutral-gray);
+    color: var(--su-gray);
     padding: 4rem 0;
 }
 .white-bg {
-    background: #ffffff;
-    color: #333;
+    background: var(--su-white);
+    color: var(--su-gray);
     padding: 4rem 0;
 }
 .textured-bg {
     background: url(./assets/decor/wood.png);
 }
 .gradient-blue-bg {
-    background: linear-gradient(118deg,#000E54,30.08%,#203299 98.9%);
-    color: white;
+    background: linear-gradient(118deg,var(--su-blue-primary),30.0%,var(--su-blue-medium) 99.0%);
+    color: var(--su-white);
     padding: 4rem 0;
 }
-.gradient-blue-bg code {
-    color: #ffffff99;
-}
-.gradient-blue-bg a {
-    color: white !important;
-}
 .hero {
-    background:linear-gradient(#000e54cc, #000e54cc), center bottom / cover url(./assets/SFS_NancyCantorWarehouse_0008_72PPI_BW.JPG);
+    background:linear-gradient(var(--blue-overlay)), center bottom / cover url(./assets/SFS_NancyCantorWarehouse_0008_72PPI_BW.JPG);
     display: flex;
     position: relative;
     text-align: center;
@@ -173,7 +183,7 @@ header:hover {
     align-items: center;
     min-height: 95vh;
     width: 100%;
-    color: white;
+    color: var(--su-white);
     filter: opacity(1);
     transition: all 300ms;
     z-index: 0;
@@ -181,8 +191,8 @@ header:hover {
 .hero .plate {
     margin: 0 2.5%;
     font-weight: normal;
-    font-size: 1.25rem;
-    letter-spacing: 0.3px;
+    font-size: 1.125rem;
+    letter-spacing: 0.15px;
 }
 .hero .arrow {
     margin: 0 auto;
@@ -191,9 +201,9 @@ header:hover {
     bottom: 7.5%;
     left: 50%;
     transform: translateX(-50%);
-    animation: hero-arrow-anim 5s infinite;
+    animation: scroll-arrow 5s infinite;
 }
-@keyframes hero-arrow-anim {
+@keyframes scroll-arrow {
     0% {
         transform: translate(-50%, 0%);
     }
@@ -206,34 +216,35 @@ header:hover {
 }
 .hint {
     position: absolute;
-    background-color: #f76900ea;
+    background-color: var(--orange-overlay);
+    color: var(--su-white);
     bottom: -2%;
     left: 8vw;
     padding: 0.5rem 1.25rem;
     transform: rotate(-5deg);
     z-index: 800;
     font-size: 0.875rem;
+    letter-spacing: 0;
 }
 h1.title {
-    font-family: "Syracuse Block Condensed", "Oswald", sans-serif;
-    font-weight: var(--fontWeight);
-    font-size: clamp(4rem, 12.25vw, 11rem);
+    font-family: "Syracuse Block Condensed", sans-serif;
+    font-weight: var(--variable-weight);
+    font-size: clamp(5.5rem, 12.25vw, 11rem);
     padding: 1rem 0;
 }
 h1.title em {
-    color: #f76900;
+    color: var(--su-orange-primary);
     font-style: normal;
 }
 .cards {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-wrap: wrap;
 }
 .cards img {
-    width: 25%;
+    width: 100%;
 }
 .glyphs {
     padding: 6rem 0;
@@ -241,9 +252,14 @@ h1.title em {
 .glyphs .all-glyphs {
     font-family: "Syracuse Block Condensed", sans-serif;
     font-size: 8rem;
-    line-height: 1.8em;
+    line-height: 138%;
     letter-spacing: 0.15rem;
     text-align: justify;
+}
+@media ( min-width: 64rem ) {
+    .glyphs .all-glyphs {
+        line-height: 180%;
+    }
 }
 .center {
     text-align: center;
@@ -283,7 +299,6 @@ button:hover {
 }
 .words ul {
     padding: 0;
-    margin-right: -14% !important;
 }
 .sample {
     display: inline-block;
@@ -310,24 +325,17 @@ button:hover {
 }
 .prose p {
     padding-bottom: 2rem;
-    line-height: 175%;
-}
-.prose code {
-    font-family: 'Courier New', Courier, monospace;
-    font-style: normal;
-    padding: 1rem;
-    background-color: #efefef;
+    line-height: 200%;
 }
 footer {
-    padding: 6rem 4rem !important; 
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1rem;
-    border-top: #70778080 1px solid;
-    color: #000E54;
-    text-align: center;
+    border-top: 1px solid rgb(from #707780 r g b / 0.5);
+    color: var(--su-blue-primary);
 }
 footer p {
-    font-family: Verdana, sans-serif;
-    margin: 0 calc(100% * 0.15);
-    text-align: center;
+    font-family: var(--sherman-sans);
+}
+footer p + p {
+    margin-top: 1em;
 }
